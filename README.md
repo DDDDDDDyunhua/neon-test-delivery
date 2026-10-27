@@ -23,7 +23,7 @@ bash restore-delivery.sh
 还原后：
 
 ```text
-Neon-test-delivery-20261027/
+Neon内核交付包-20261027/
   kernel/target/        原始 Rust 完整编译目录
   kernel/build/         原始 PostgreSQL 构建目录
   kernel/pg_install/    PG14、15、16、17 完整安装产物

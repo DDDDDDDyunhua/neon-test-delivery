@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd -- "$(dirname -- "$0")"
-target="${1:-Neon-test-delivery-20261027}"
+target="${1:-Neon内核交付包-20261027}"
 test ! -e "$target" || { echo "Target already exists: $target" >&2; exit 1; }
 build=(neon-full-build.tar.part-*)
 support=(neon-test-support.tar.part-*)
