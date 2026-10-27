@@ -6,19 +6,23 @@
 
 原始编译结果未裁剪、未 strip，包括完整 target、build、PG14～17 安装产物，以及 proxy、local_proxy、pg_sni_router 等全部 18 个 release 程序。Release 使用**未压缩 tar 分卷**，仅为满足 GitHub 单附件大小限制，不减少文件内容。
 
-在 Linux 上以 root 操作为例（先安装 GitHub CLI；也可以在公开 Release 页面手动下载）：
+在 Linux 上以 root 操作为例，以下命令无需 GitHub 账号：
 
 ```bash
 mkdir -p /root/neon-delivery-download
 cd /root/neon-delivery-download
-gh release download test-20261027 --repo DDDDDDDyunhua/neon-test-delivery \
-  --pattern 'neon-full-build.tar.part-*' \
-  --pattern 'neon-test-support.tar.part-*' \
-  --pattern 'restore-delivery.sh'
+base=https://github.com/DDDDDDDyunhua/neon-test-delivery/releases/download/test-20261027
+for n in {000..021}; do
+  curl -fL --retry 3 -O "$base/neon-full-build.tar.part-$n"
+done
+for n in 000 001; do
+  curl -fL --retry 3 -O "$base/neon-test-support.tar.part-$n"
+done
+curl -fL --retry 3 -O "$base/restore-delivery.sh"
 bash restore-delivery.sh /root/Neon内核交付包-20261027
 ```
 
-也可以在 Release 页面下载所有分卷和 restore-delivery.sh 到同一目录，执行上述最后一条命令。需要足够磁盘空间容纳下载分卷及展开结果。不要只下载 GitHub 自动生成的 Source code ZIP，它不含编译产物。
+也可以在公开 Release 页面下载所有分卷和 restore-delivery.sh 到同一目录，然后运行还原脚本。需要足够磁盘空间容纳下载分卷及展开结果。不要只下载 GitHub 自动生成的 Source code ZIP，它不含编译产物。
 
 还原后：
 
