@@ -1,29 +1,11 @@
-# Neon 完整文件夹 ZIP 交付包
+# Neon 测试交付
 
-下载页面：https://github.com/DDDDDDDyunhua/neon-test-delivery/releases/tag/full-zip-20261027
+## Docker 镜像交付
 
-本包直接压缩桌面的“Neon内核交付包-20261027”整个文件夹，保留全部 59,439 个文件、空目录、完整编译产物、源码、部署脚本和文档。没有裁剪编译结果。
+[下载完整编译镜像、部署脚本和单 ECS 多容器部署文档](https://github.com/DDDDDDDyunhua/neon-test-delivery/releases/tag/docker-full-20261027)。镜像包含 PG14/15/16/17、18 个 Neon 可执行组件及完整 target/build/pg_install。默认启动 11 个容器，提供 PG16/PG17 两个业务实例。下载页面中的全部 ZIP 分卷。
 
-GitHub 单个附件必须小于 2 GiB，因此完整 ZIP 按顺序分卷。请下载下面所有分卷到同一个文件夹，不要只下载第一个。
+## 完整源码及原始编译目录
 
-- `Neon-full-delivery-20261027.zip.001`
-- `Neon-full-delivery-20261027.zip.002`
-- `Neon-full-delivery-20261027.zip.003`
+[下载完整文件夹交付包](https://github.com/DDDDDDDyunhua/neon-test-delivery/releases/tag/full-zip-20261027)。
 
-Windows：使用 7-Zip 打开 `Neon-full-delivery-20261027.zip.001` 并解压，其他分卷放在同一目录即可。或者先在命令提示符执行下面的合并命令，再解压生成的 ZIP：
-
-```bat
-copy /b Neon-full-delivery-20261027.zip.001+Neon-full-delivery-20261027.zip.002+Neon-full-delivery-20261027.zip.003 Neon-full-delivery-20261027.zip
-```
-
-Linux：
-
-```bash
-cat Neon-full-delivery-20261027.zip.[0-9][0-9][0-9] > Neon-full-delivery-20261027.zip
-unzip Neon-full-delivery-20261027.zip
-python3 "Neon内核交付包-20261027/restore-linux-metadata.py"
-```
-
-解压后的根目录包含 `kernel/`、`source/`、`deploy/`、`docs/`、`README.md` 和 Linux 文件权限/链接恢复工具。部署步骤见文件夹内 README 与 docs。
-
-请下载本发布附件中的完整 ZIP 分卷；页面自动生成的 Source code (zip) 只包含仓库说明页。
+两个交付包用途不同：Docker 包用于导入镜像部署，完整文件夹包提供源码和原始编译结果。GitHub 自动生成的 Source code 附件只包含本仓库说明，不是以上交付包。
