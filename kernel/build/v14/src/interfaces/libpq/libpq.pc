@@ -1,0 +1,9 @@
+Name: libpq
+Description: PostgreSQL libpq library
+Url: https://www.postgresql.org/
+Version: 14.18
+Requires: 
+Requires.private: libssl libcrypto
+Cflags: -I/opt/neon/pg_install/v14/include
+Libs: -L/opt/neon/pg_install/v14/lib -lpq
+Libs.private:  -lpgcommon -lpgport -lm
