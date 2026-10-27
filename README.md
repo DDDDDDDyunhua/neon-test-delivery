@@ -1,12 +1,12 @@
 # Neon 内部测试交付
 
-这是私有测试仓库。源码、部署脚本和文档可直接查看；完整编译产物在 [Release test-20261027](https://github.com/DDDDDDDyunhua/neon-test-delivery/releases/tag/test-20261027)。
+这是公开测试仓库。源码、部署脚本和文档可直接查看；完整编译产物在 [Release test-20261027](https://github.com/DDDDDDDyunhua/neon-test-delivery/releases/tag/test-20261027)。
 
 ## 下载完整交付目录
 
 原始编译结果未裁剪、未 strip，包括完整 target、build、PG14～17 安装产物，以及 proxy、local_proxy、pg_sni_router 等全部 18 个 release 程序。Release 使用**未压缩 tar 分卷**，仅为满足 GitHub 单附件大小限制，不减少文件内容。
 
-在 Linux 上以 root 操作为例（先安装 gh，并使用有本私有仓库读取权限的账号登录）：
+在 Linux 上以 root 操作为例（先安装 GitHub CLI；也可以在公开 Release 页面手动下载）：
 
 ```bash
 mkdir -p /root/neon-delivery-download
@@ -49,4 +49,4 @@ kernel/bin 在 Linux 使用目录软链接指向完整 release 目录，避免�
 
 source/neon 包含保留的 Neon 快照及 PG14～17 vendor 源码；没有 Neon 原主仓库历史或主提交 SHA。source/build-records 包含 Cargo.lock、PG 子模块版本及历史构建命令；不是完整离线构建 SDK。原源码中的版权与许可证文件保留。
 
-测试人员需要本私有仓库的读取权限才能下载附件。
+仓库和 Release 均公开，测试人员无需加入仓库即可下载。
