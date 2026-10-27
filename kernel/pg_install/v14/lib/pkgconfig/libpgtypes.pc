@@ -1,0 +1,9 @@
+Name: libpgtypes
+Description: PostgreSQL libpgtypes library
+Url: https://www.postgresql.org/
+Version: 14.18
+Requires: 
+Requires.private: 
+Cflags: -I/opt/neon/pg_install/v14/include
+Libs: -L/opt/neon/pg_install/v14/lib -lpgtypes
+Libs.private:  -lpgcommon -lpgport -lm
