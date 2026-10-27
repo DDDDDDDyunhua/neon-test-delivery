@@ -6,16 +6,16 @@
 
 原始编译结果未裁剪、未 strip，包括完整 target、build、PG14～17 安装产物，以及 proxy、local_proxy、pg_sni_router 等全部 18 个 release 程序。Release 使用**未压缩 tar 分卷**，仅为满足 GitHub 单附件大小限制，不减少文件内容。
 
-在 Linux 上（先使用有本私有仓库读取权限的账号登录 gh）：
+在 Linux 上以 root 操作为例（先安装 gh，并使用有本私有仓库读取权限的账号登录）：
 
 ```bash
-mkdir neon-delivery-download
-cd neon-delivery-download
+mkdir -p /root/neon-delivery-download
+cd /root/neon-delivery-download
 gh release download test-20261027 --repo DDDDDDDyunhua/neon-test-delivery \
   --pattern 'neon-full-build.tar.part-*' \
   --pattern 'neon-test-support.tar.part-*' \
   --pattern 'restore-delivery.sh'
-bash restore-delivery.sh
+bash restore-delivery.sh /root/Neon内核交付包-20261027
 ```
 
 也可以在 Release 页面下载所有分卷和 restore-delivery.sh 到同一目录，执行上述最后一条命令。需要足够磁盘空间容纳下载分卷及展开结果。不要只下载 GitHub 自动生成的 Source code ZIP，它不含编译产物。
