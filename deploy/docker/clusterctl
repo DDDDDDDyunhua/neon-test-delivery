@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+cd /opt/neon-cluster
+exec docker compose -f compose.json "$@"

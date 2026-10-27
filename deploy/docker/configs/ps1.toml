@@ -1,0 +1,14 @@
+pg_distrib_dir='/opt/neon-kernel/pg_install'
+broker_endpoint='http://broker:50051'
+listen_pg_addr='0.0.0.0:6400'
+listen_http_addr='0.0.0.0:9898'
+listen_grpc_addr='0.0.0.0:51051'
+pg_auth_type='Trust'
+http_auth_type='Trust'
+grpc_auth_type='Trust'
+control_plane_api='http://controller:1234/upcall/v1/'
+remote_storage={local_path='/shared/pageserver'}
+virtual_file_io_engine='std-fs'
+virtual_file_io_mode='buffered'
+no_sync=false
+page_cache_size=16384

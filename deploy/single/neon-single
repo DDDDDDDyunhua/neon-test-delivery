@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+if [ "$(id -u)" -eq 0 ]; then
+  exec runuser -u neon -- /usr/local/bin/neon-single "$@"
+fi
+if [ "$(id -un)" != neon ]; then
+  echo '请以 root 或 neon 用户执行' >&2
+  exit 1
+fi
+export NEON_REPO_DIR=/opt/neon-single/.neon
+export PATH=/opt/neon-single/kernel/bin:/opt/neon-single/kernel/pg_install/v17/bin:/usr/local/bin:/usr/bin:/bin
+export LD_LIBRARY_PATH=/opt/neon-single/kernel/pg_install/v17/lib:/opt/neon-single/kernel/pg_install/v16/lib
+cd /opt/neon-single
+exec /opt/neon-single/kernel/bin/neon_local "$@"
